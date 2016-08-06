@@ -9,7 +9,6 @@
     <p>
         Clicked: <span id="value"></span>
         <button id="helloworld">show hello world</button>
-        <button id="yvette">show Yveete</button>
     </p>
 </div>
 <script>
@@ -19,9 +18,12 @@
         }
         switch (action.type) {
             case "SHOW_HELLO_WORLD":
-                return "Hello World";
-            case "SHOW_NAME":
-                return "Yveete";
+                if(state==='Hello World')
+                {
+                    return "Yvette";
+                }else {
+                    return "Hello World";
+                }
             default:
                 return "Nothing To Show";
         }
@@ -41,12 +43,6 @@
             .addEventListener('click',function () {
                 store.dispatch({type:'SHOW_HELLO_WORLD'});
             })
-
-    document.getElementById('yvette')
-            .addEventListener('click',function () {
-                store.dispatch({type: 'SHOW_NAME'});
-            })
-    
 </script>
 </body>
 </html>
